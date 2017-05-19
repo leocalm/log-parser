@@ -1,0 +1,3 @@
+level=info request_to="http://localHost-13.com.br/test" response_status="200"
+level=info request_to="http://localHost-13.com.br/test" response_status="400"
+level=info request_to="http://localhost" response_status="200"
