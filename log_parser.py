@@ -86,7 +86,6 @@ class LogParser:
         Opens the logg file, perform the parse of the file and
         then print the results
         """
-        log_file = open(self.file_name, 'r', errors='ignore')
-        for line in log_file:
-            self.process_line(line)
-        log_file.close()
+        with open(self.file_name, 'r', errors='ignore') as log_file:
+            for line in log_file:
+                self.process_line(line)
