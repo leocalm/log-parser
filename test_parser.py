@@ -1,4 +1,7 @@
+import os
 import log_parser
+import parse
+import pytest
 
 
 def test_order_dict():
@@ -103,3 +106,18 @@ def test_format_result():
                 '200 - 2\n'
                 '400 - 1')
     assert result == expected
+
+
+def test_parse_arguments_error():
+    with pytest.raises(SystemExit):
+        parse.parse_arguments()
+
+
+def test_parse_arguments():
+    result = parse.parse_arguments(['log.txt'])
+    assert result.log_file == 'log.txt'
+
+
+def test_main():
+    result = os.system("python3 parse.py log.txt")
+    assert result == 0
